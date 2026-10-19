@@ -15,33 +15,84 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <meta charset='utf-8'>
-        <title>PSFree-Lapse Exploit For PS4 9.00</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Alsherif Store | PS4 WebKit Host</title>
         <style>
             @font-face {
                 font-family: 'logging';
                 src: url('fonts/LiberationMono-Regular.ttf');
             }
+            * { box-sizing: border-box; }
+            html, body { min-height: 100%; margin: 0; background: #020817; }
+            body {
+                min-height: 100vh;
+                padding: 14px;
+                color: #f8fbff;
+                text-align: left;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #020817;
+                background-image:
+                    linear-gradient(rgba(1, 8, 24, .16), rgba(1, 8, 24, .20)),
+                    url('bg.png');
+                background-position: center center, center center;
+                background-repeat: no-repeat, no-repeat;
+                background-size: 100% 100%, contain;
+                background-attachment: fixed;
+            }
+            .host-info {
+                display: inline-block;
+                max-width: min(88vw, 450px);
+                padding: 9px 13px;
+                color: #f8fbff;
+                font-size: clamp(12px, 1.35vw, 16px);
+                line-height: 1.45;
+                background: rgba(0, 5, 18, .76);
+                border: 1px solid rgba(0, 153, 255, .70);
+                border-radius: 9px;
+                box-shadow: 0 0 18px rgba(0, 112, 255, .18);
+                text-shadow: 0 1px 3px #000;
+            }
+            .host-info strong { color: #6fdcff; }
+            a { color: #8be3ff; }
             #console {
-                font-family: 'logging';
+                position: fixed;
+                left: 12px;
+                bottom: 12px;
+                width: min(43vw, 610px);
+                max-height: 28vh;
+                margin: 0;
+                padding: 10px 13px;
+                overflow: auto;
+                overflow-wrap: anywhere;
+                white-space: pre-wrap;
+                text-align: left;
+                font-family: 'logging', monospace;
+                font-size: clamp(11px, 1.05vw, 15px);
+                line-height: 1.4;
+                color: #e8f4ff;
+                background: rgba(0, 5, 18, .78);
+                border: 1px solid rgba(0, 153, 255, .76);
+                border-radius: 10px;
+                box-shadow: 0 0 22px rgba(0, 112, 255, .18);
+                text-shadow: none;
             }
         </style>
         <script>
-        if (window.applicationCache.status=='0')
-        {
-          window.location.replace("cache.html");
+        if (window.applicationCache && window.applicationCache.status === 0) {
+            window.location.replace('cache.html');
         }
         </script>
     </head>
     <body>
-        PSFree: A PS4/PS5 Exploit Chain
-        <br>
-        <br>
-        See <a href='./about.html' data-jslicense='1'>JavaScript license information</a> for the
-        source code and license.<br>
-        <pre id='console'></pre>
+        <div class="host-info">
+            <strong>PS4 WebKit Host · Firmware 9.00</strong><br>
+            <a href="./about.html" data-jslicense="1">JavaScript source and license</a>
+        </div>
+        <pre id="console" aria-live="polite"></pre>
+        <script type="module" src="./alert.mjs"></script>
     </body>
-    <script type='module' src='./alert.mjs'></script>
 </html>
